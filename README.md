@@ -11,10 +11,10 @@ make
 ./calc
 ```
 
-Run tests:
+Run tests (requires pFUnit):
 
 ```bash
-export PFUNIT=/opt/pfunit
+export PFUNIT=$HOME/pfunit  # adjust if pFUnit is installed elsewhere
 make check
 ```
 

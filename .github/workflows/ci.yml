@@ -20,8 +20,8 @@ jobs:
       - name: Build project
         run: make
         env:
-          PFUNIT: $HOME/pfunit
+          PFUNIT: ${{ env.HOME }}/pfunit
       - name: Run tests
         run: make check
         env:
-          PFUNIT: $HOME/pfunit
+          PFUNIT: ${{ env.HOME }}/pfunit
