@@ -1,0 +1,33 @@
+module test_float_ops
+  !> Unit tests for float_ops module
+  use pfunit
+  use float_ops
+  implicit none
+contains
+
+  @test
+  subroutine test_add()
+    call assertEqual(5.0_dp, add(2.0_dp, 3.0_dp))
+  end subroutine test_add
+
+  @test
+  subroutine test_sub()
+    call assertEqual(1.0_dp, sub(3.0_dp, 2.0_dp))
+  end subroutine test_sub
+
+  @test
+  subroutine test_mul()
+    call assertEqual(6.0_dp, mul(2.0_dp, 3.0_dp))
+  end subroutine test_mul
+
+  @test
+  subroutine test_div()
+    call assertEqual(2.0_dp, div(6.0_dp, 3.0_dp))
+  end subroutine test_div
+
+  @test(expectedExit=1)
+  subroutine test_div_by_zero()
+    call div(1.0_dp, 0.0_dp)
+  end subroutine test_div_by_zero
+
+end module test_float_ops
