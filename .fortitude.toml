@@ -1,0 +1,8 @@
+[rules]
+complexity = true
+errors = true
+style = true
+
+[style]
+line-length = 100
+ignore = ["S082"]

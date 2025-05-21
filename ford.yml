@@ -1,0 +1,3 @@
+project: fortran-fp-calc
+source_dir: src
+output_dir: docs/html

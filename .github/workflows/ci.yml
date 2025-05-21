@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        run: sudo apt-get update && sudo apt-get install -y gfortran make cmake git m4
+      - name: Build pFUnit
+        run: |
+          git clone https://github.com/Goddard-Fortran-Ecosystem/pFUnit.git
+          cd pFUnit && mkdir build && cd build
+          cmake .. -DCMAKE_INSTALL_PREFIX=$HOME/pfunit
+          make -j2 && make install
+      - name: Build project
+        run: make
+        env:
+          PFUNIT: $HOME/pfunit
+      - name: Run tests
+        run: make check
+        env:
+          PFUNIT: $HOME/pfunit
