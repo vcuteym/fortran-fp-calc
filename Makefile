@@ -17,8 +17,9 @@ calc: $(OBJ)
 build/tests:
 	@mkdir -p build/tests
 
+
 check: all build/tests tests/test_float_ops.pf
-	$(PFUNIT)/bin/pfunit-compile tests/test_float_ops.pf -o build/tests/test_float_ops
+	$(PFUNIT)/bin/pFUnit-compile tests/test_float_ops.pf -o build/tests/test_float_ops
 	build/tests/test_float_ops
 
 clean:
