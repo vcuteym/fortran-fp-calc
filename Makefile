@@ -1,6 +1,7 @@
 FC = gfortran
 FFLAGS = -Wall -O2 -Jbuild
-PFUNIT ?= /opt/pfunit
+# Default path for pFUnit; override PFUNIT to match your installation
+PFUNIT ?= $(HOME)/pfunit
 
 SRC = src/float_ops.f90 src/main.f90
 OBJ = $(SRC:.f90=.o)
